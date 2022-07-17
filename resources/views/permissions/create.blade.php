@@ -73,7 +73,7 @@
             <div class="container-fluid" id='createhotel'>
                 <h6 class="text-center display-4">اضافة صلاحية   </h6>
 
-                <form method="POST" enctype="multipart/form-data"  action="{{route('storerole')}}">
+                <form method="POST" enctype="multipart/form-data"  action="{{route('permission.store')}}">
                     @csrf
                     <div class="row">
                         <div class="col-md-11 offset-md-1">

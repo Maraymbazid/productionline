@@ -96,9 +96,15 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">
+                                    <a href="{{route('permission.create')}}" class="nav-link">
                                         <i class="fas fa-plus-circle"></i>
-                                        <p>اضافة فندق</p>
+                                        <p>اضافة  صلاحيه </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('users.create')}}" class="nav-link">
+                                        <i class="fas fa-plus-circle"></i>
+                                        <p>اضافة  عامل </p>
                                     </a>
                                 </li>
                             </ul>

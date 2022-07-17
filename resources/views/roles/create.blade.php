@@ -73,11 +73,15 @@
             <div class="container-fluid" id='createhotel'>
                 <h6 class="text-center display-4">اضافة وظيفة  </h6>
 
+                @hasrole('admin')
+                I am a admin!
+                @else
+                I am not a writer...
+                @endhasrole
                 <form method="POST" enctype="multipart/form-data"  action="{{route('storerole')}}">
                     @csrf
                     <div class="row">
                         <div class="col-md-11 offset-md-1">
-
                                 {{-- name  --}}
                                 <div class="col-12">
                                     <div class="form-group">
@@ -108,6 +112,7 @@
             </div>
         </section>
     </div>
+
 @endsection
 @section('js')
     {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>

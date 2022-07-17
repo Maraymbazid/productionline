@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\PermissionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,17 @@ Route::get('/', function () {
 
 Route::get('createrole', [RoleController::class, 'create'])->name('rolecreate');
 Route::post('storerole', [RoleController::class, 'store'])->name('storerole');
+
+
+Route::group(['prefix' => 'permission', 'as' => 'permission.'], function () {
+    Route::get('create', [PermissionController::class, 'create'])->name('create');
+    Route::post('store', [PermissionController::class, 'store'])->name('store');
+});
+Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
+    Route::get('create', [UserController::class, 'create'])->name('create');
+    Route::post('store', [UserController::class, 'store'])->name('store');
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
