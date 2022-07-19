@@ -62,21 +62,15 @@
 
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4" style="direction: ltr;">
-            <!-- Brand Logo -->
-            <a class="brand-link">
-                <img src="{{ url('LOGO.png') }}" alt="AdminLTE Logo"
-                    class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Hotels </span>
-            </a>
-
-            <!-- Sidebar -->
             <div class="sidebar">
-
-
-                <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                         data-accordion="false">
+                        <a class="brand-link">
+                        <img src="{{ url('LOGO.png') }}" alt="AdminLTE Logo"
+                            class="brand-image img-circle elevation-3" style="opacity: .8">
+                        <span class="brand-text font-weight-light">Production Line </span>
+                        </a>
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
 
@@ -84,51 +78,44 @@
                             <a href="#" class="nav-link">
                                 <i class="fas fa-folder-open"></i>
                                 <p>
-                                        الفنادق
+                                   الصلاحيات  
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{route('permission.create')}}" class="nav-link">
+                                        <i class="fas fa-gamepad"></i>
+                                        <p>    إنشاء صلاحية  </p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{route('permission.index')}}" class="nav-link">
+                                        <i class="fas fa-plus-circle"></i>
+                                        <p>  جميع صلاحيات </p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-folder-open"></i>
+                                <p>
+                                  الادوار
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{route('rolecreate')}}" class="nav-link">
-                                        <i class="fas fa-gamepad"></i>
-                                        <p>  انشاء دور جديد  </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('permission.create')}}" class="nav-link">
-                                        <i class="fas fa-plus-circle"></i>
-                                        <p>اضافة  صلاحيه </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{route('users.create')}}" class="nav-link">
-                                        <i class="fas fa-plus-circle"></i>
-                                        <p>اضافة  عامل </p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        {{--
-                        <li class="nav-item ">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-folder-open"></i>
-                                <p>
-                                     الخدمات
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="{{route('createservice')}}" class="nav-link">
                                         <i class="fas fa-folder"></i>
-                                        <p>إضافة خدمة</p>
+                                        <p>  إنشاء دور جديد </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{route('allservices')}}" class="nav-link">
+                                    <a href="{{route('allroles')}}" class="nav-link">
                                         <i class="fas fa-plus-square"></i>
-                                        <p> كل خدمات </p>
+                                        <p>  جميع الادوار </p>
                                     </a>
                                 </li>
 

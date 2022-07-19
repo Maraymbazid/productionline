@@ -73,7 +73,7 @@
             <div class="container-fluid" id='createhotel'>
                 <h6 class="text-center display-4">اضافة صلاحية   </h6>
 
-                <form method="POST" enctype="multipart/form-data"  action="{{route('permission.store')}}">
+                <form method="POST" enctype="multipart/form-data"  id='addpermission'>
                     @csrf
                     <div class="row">
                         <div class="col-md-11 offset-md-1">
@@ -81,7 +81,7 @@
                                 {{-- name  --}}
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label>  اضافة صلاحيات  </label>
+                                        <label>   الاسم  </label>
                                         <div class="input-group input-group-lg">
                                             <input type="text"   name='name'  class="form-control form-control-lg"  >
                                         </div>
@@ -110,15 +110,46 @@
     </div>
 @endsection
 @section('js')
-    {{-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script> 
+    <script>
+        $('#addpermission').submit(function(e) {
+            e.preventDefault();
+            let formData = new FormData(this);
+            $.ajax({
+                type: 'POST',
+                enctype: 'multipart/form-data',
+                url: `{{ route('permission.store') }}`,
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: (response) => {
+                    if (response) {
+                        this.reset();
+                        Swal.fire({
+                            position: 'top-center',
+                            icon: 'success',
+                            title: response.msg,
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                },
+                error: function (reject) {
+                    var response = $.parseJSON(reject.responseText);
+                    $.each(response.errors, function(name, msg) {
+                      swal({
+                                title: msg[0],
+                                type: 'warning',
+                                confirmButtonText: 'error',
+                            });
+                    });
+                }
+            });
+        });
     </script>
-    <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.6.1/vue-resource.min.js"></script> --}}
-
-
 @endsection
+
