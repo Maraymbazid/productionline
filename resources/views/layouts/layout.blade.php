@@ -78,7 +78,7 @@
                             <a href="#" class="nav-link">
                                 <i class="fas fa-folder-open"></i>
                                 <p>
-                                   الصلاحيات  
+                                   الصلاحيات
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
@@ -142,13 +142,40 @@
                                         <p>  جميع المستخدمين  </p>
                                     </a>
                                 </li>
+                               
+                                <li class="nav-item">
+                                    <a href="{{route('orders.index')}}" class="nav-link">
+                                        <i class="fas fa-plus-square"></i>
+                                        <p>  انشاء طلب   </p>
+                                    </a>
+                                </li>
 
                             </ul>
                         </li>
                         {{-- end of this part  --}}
 
 
+                        <li class="nav-item ">
+                            <a href="#" class="nav-link">
+                                <i class="fas fa-folder-open"></i>
+                                <p>
+                                   الطلبات 
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            
+                              
+                               
+                                <li class="nav-item">
+                                    <a href="{{route('orders.index')}}" class="nav-link">
+                                        <i class="fas fa-plus-square"></i>
+                                        <p>   الطلبات   </p>
+                                    </a>
+                                </li>
 
+                            </ul>
+                        </li>
 
 
                         {{-- <li class="nav-item">
@@ -246,8 +273,10 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{ url('assest/admin/dist/js/demo.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{ url('assest/admin/dist/js/pages/dashboard2.js') }}"></script>
+    {{-- <script src="{{ url('assest/admin/dist/js/pages/dashboard2.js') }}"></script> --}}
     <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 
 
     @yield('js')

@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\Datatable\OrderDatatable;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +45,15 @@ Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
     Route::get('edit/{id}', [UserController::class, 'edit'])->name('edit');
     Route::post('update/{id}', [UserController::class, 'update'])->name('update');
     Route::post('delete', [UserController::class, 'delete'])->name('delete');
+});
+
+Route::group(['prefix' => 'order', 'as' => 'orders.'], function () {
+    Route::get('create', [OrderController::class, 'create'])->name('create');
+    Route::get('edit/{id}', [OrderController::class, 'edit'])->name('edit');
+    Route::get('/', [OrderController::class, 'index'])->name('index');
+    Route::get('/datatable', [OrderDatatable::class, 'index'])->name('indexd');
+    Route::post('delete', [OrderController::class, 'delete'])->name('delete');
+    Route::post('store', [OrderController::class, 'store'])->name('store');
 });
 
 
